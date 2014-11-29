@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+ 
+    <h:head>
+    	<title>Welcome</title>
+    </h:head>
+    <h:body bgcolor="white">
+    	<h3>Ajouter Backlog entry</h3>
+    	<h:form>
+    	   <br/>
+    	   Name :
+	    	 <h:inputText value="#{backlogEntryBean.name}"></h:inputText>
+	    	<br/>
+	    	Priority :
+	    	 <h:inputText value="#{backlogEntryBean.priority}"></h:inputText>
+	    	 <br/>
+	    	 Estimation :
+	    	 <h:inputText value="#{backlogEntryBean.estimation}"></h:inputText>
+	    	 <br/>
+	    	 Description :
+	    	 <h:inputText value="#{backlogEntryBean.description}"></h:inputText>
+	    	 
+	    		    	 
+	    	 <h:commandButton value="Add" action="#{backlogEntryBean.addBacklogEntry}"></h:commandButton>
+    	 </h:form>
+    </h:body>
+</html>

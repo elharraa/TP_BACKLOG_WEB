@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Agency list</title>
+</h:head>
+<h:body bgcolor="white">
+
+
+	<h1>Agency Backlog list</h1>
+
+
+	<h:form>
+
+
+
+		<h:dataTable value="#{backlogEntryBean.backlogEntries}" var="o"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+
+
+
+			<h:column>
+
+				<f:facet name="header">Id</f:facet>
+    				
+    			<h:inputText value="#{o.id}"></h:inputText>	 
+    			</h:column>
+
+			<h:column>
+				<f:facet name="header">name</f:facet>
+    				<h:inputText value="#{o.name}"></h:inputText>
+    				
+    			</h:column>
+			<h:column>
+				<f:facet name="header">creationDate</f:facet>
+    				#{o.creationDate}
+    			</h:column>
+			<h:column>
+				<f:facet name="header">priority</f:facet>
+				<h:inputText value="#{o.priority}"></h:inputText>
+    				
+    			</h:column>
+			<h:column>
+				<f:facet name="header">estimation</f:facet>
+				<h:inputText value="#{o.estimation}"></h:inputText>
+    				
+    			</h:column>
+			<h:column>
+				<f:facet name="header">description</f:facet>
+						<h:inputText value="#{o.description}"></h:inputText>
+    				
+    			</h:column>
+    			
+    			
+    			<h:column>
+				<f:facet name="header">view comment</f:facet>
+				<h:commandButton value="view comment"
+					actionListener="#{commentBean.toCommentList}">
+					<f:attribute name="backlogEntryId" value="#{o.id}" />
+				</h:commandButton>
+			</h:column>
+    			
+    			
+			<h:column>
+				<f:facet name="header">edit</f:facet>
+				<h:commandButton value="edit"
+					actionListener="#{backlogEntryBean.toEditBacklogEntry}">
+					<f:attribute name="backlogEntryId" value="#{o.id}" />
+					<f:attribute name="backlogEntryCreationDate" value="#{o.creationDate}" />
+				</h:commandButton>
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">delete</f:facet>
+				<h:commandButton value="remove"
+					actionListener="#{backlogEntryBean.removeBacklogEntry}">
+					<f:attribute name="backlogEntryId" value="#{o.id}" />
+				</h:commandButton>
+			</h:column>
+
+		</h:dataTable>
+
+		<h:commandButton value="Add backlog entry" action="AddBacklogEntry"></h:commandButton>
+
+	</h:form>
+
+</h:body>
+</html>
