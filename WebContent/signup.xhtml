@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Secured welcome page</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputText value="firstname" />
+		<h:inputText value="#{signUpBean.utilisateur.firstname}" />
+		<br />
+		<h:outputText value="lastname" />
+		<h:inputText value="#{signUpBean.utilisateur.lastname}" />
+		<br />
+		<h:outputText value="email" />
+		<h:inputText value="#{signUpBean.utilisateur.email}" />
+		<br />
+		<h:commandButton value="Sign up"
+			action="#{signUpBean.creerUtilisateur}" />
+		<br />
+		<h:messages />
+		<br />
+		<h:commandLink action="#{navigationBean.toLogin}" value="back to Login"/>
+	</h:form>
+</h:body>
+</html>
