@@ -8,9 +8,12 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import com.backlog.dao.agency.AgencyDaoLocal;
 import com.backlog.model.Agency;
+import com.backlog.model.User;
 
 @SuppressWarnings("serial")
 @ManagedBean(name = "agencyBean", eager = true)
@@ -20,7 +23,12 @@ public class AgencyBean implements Serializable {
 	private String name;
 	private String id;
 	private List<Agency> agencies = new ArrayList<Agency>();
-
+	
+	private User user;
+	
+	@Inject
+	HttpSession httpSession;
+	
 	@EJB
 	private AgencyDaoLocal agencyDao;
 
@@ -52,6 +60,8 @@ public class AgencyBean implements Serializable {
 	}
 
 	public List<Agency> getAgencies() {
+		System.out.println("totototoot"+httpSession.getAttribute("connectedMember"));
+		
 		this.agencies = agencyDao.getAllAgencies();
 		return agencies;
 	}

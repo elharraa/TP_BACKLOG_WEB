@@ -9,7 +9,7 @@
 		<h:form>
     		What's your name?
     	   <h:inputText value="#{userBean.user.name}"></h:inputText>
-			<h:commandButton value="Connect" action="AgencyList"></h:commandButton>
+			<h:commandButton value="Connect" action="#{userBean.Login}"></h:commandButton>
 		</h:form>
 
 		<h:form id="reg">
