@@ -21,6 +21,7 @@ import com.backlog.model.User;
 public class AgencyBean implements Serializable {
 
 	private String name;
+	private String creator;
 	private String id;
 	private List<Agency> agencies = new ArrayList<Agency>();
 	
@@ -39,6 +40,10 @@ public class AgencyBean implements Serializable {
 	public String getId() {
 		return id;
 	}
+	
+	public String getCreator() {
+		return creator;
+	}
 
 	public void setId(String id) {
 		this.id = id;
@@ -46,6 +51,10 @@ public class AgencyBean implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setCreator(String creator) {
+		this.creator = creator;
 	}
 
 	public List<Agency> allAgencies() {
@@ -55,14 +64,16 @@ public class AgencyBean implements Serializable {
 	}
 
 	public String addAgency() {
-		agencyDao.addAgency(new Agency(this.getName()));
+		user = (User) httpSession.getAttribute("connectedMember");
+		agencyDao.addAgency(new Agency(this.getName(), user.getName()));
 		return "AgencyList?faces-redirect=true";
 	}
 
 	public List<Agency> getAgencies() {
-		System.out.println("totototoot"+httpSession.getAttribute("connectedMember"));
+		user = (User) httpSession.getAttribute("connectedMember");
 		
-		this.agencies = agencyDao.getAllAgencies();
+		//this.agencies = agencyDao.getAllAgencies();
+		this.agencies = agencyDao.getAllAgenciesFromUser(user.getName());
 		return agencies;
 	}
 

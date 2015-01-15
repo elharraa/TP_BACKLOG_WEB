@@ -43,9 +43,7 @@ public class UserBean implements Serializable {
 	    }
 	 
 	 public void Login() throws IOException{
-		 System.out.println(">>>>>>>>>>>>>>>>>"+userDao.findByName(user));
 		 if(userDao.findByName(user) != null){
-//			 HttpSession httpSession = (HttpSession) facesContext.getExternalContext().getSession(false);
              httpSession.setAttribute("connectedMember", user);
              FacesContext.getCurrentInstance().getExternalContext().redirect("AgencyList.jsf");
 		 }else{
