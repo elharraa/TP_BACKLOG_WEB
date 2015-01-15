@@ -1,16 +1,21 @@
 # Created by .gitignore support plugin (hsz.mobi)
 ### Java template
 *.class
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
 # Package Files #
 *.jar
 *.war
 *.ear
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+
 ## Directory-based project format
 .idea/
 # if you remove the above rule, at least ignore user-specific stuff:
@@ -21,17 +26,21 @@ hs_err_pid*
 # .idea/dataSources.xml
 # .idea/sqlDataSources.xml
 # .idea/dynamic.xml
+
 ## File-based project format
 *.ipr
 *.iws
 *.iml
+
 ## Additional for Eclipse
 .settings/
 build/
 .classpath
 .project
+
 ## Additional for IntelliJ
 out/
+
 ear/target/
 ejb/target/
 web/target/
