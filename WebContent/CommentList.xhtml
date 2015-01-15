@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+
+
+<h:head>
+	<title>Comment list</title>
+</h:head>
+<h:body bgcolor="white">
+
+
+	<h1>Comment list</h1>
+
+
+	<h:form>
+
+
+
+		<h:dataTable value="#{commentBean.comments}" var="o"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+
+
+			<h:column>
+
+				<f:facet name="header">Id</f:facet>
+    				
+    			<h:inputText value="#{o.id}"></h:inputText>	 
+    			</h:column>
+
+			<h:column>
+				<f:facet name="header">Id user</f:facet>
+    				<h:inputText value="#{o.userId}"></h:inputText>
+    				
+    			</h:column>
+			<h:column>
+				<f:facet name="header">Id entry</f:facet>
+    				#{o.entryId}
+    			</h:column>
+			<h:column>
+				<f:facet name="header">Comment</f:facet>
+				<h:inputText value="#{o.comment}"></h:inputText>
+    				
+    			</h:column>
+			<h:column>
+				<f:facet name="header">Creation date</f:facet>
+				<h:inputText value="#{o.creationDate}"></h:inputText>
+    				
+    			</h:column>
+						<h:column>
+				<f:facet name="header">edit</f:facet>
+				<h:commandButton value="edit comment"
+					actionListener="#{commentBean.toEditComment}">
+					<f:attribute name="commentId" value="#{o.id}" />
+					<f:attribute name="commentCreationDate" value="#{o.creationDate}" />
+				</h:commandButton>
+			</h:column>
+
+
+			<h:column>
+				<f:facet name="header">delete</f:facet>
+				<h:commandButton value="remove"
+					actionListener="#{commentBean.removeComment}">
+					<f:attribute name="commentId" value="#{o.id}" />
+				</h:commandButton>
+			</h:column>
+
+		</h:dataTable>
+
+		<h:commandButton value="Add comment" action="AddComment"></h:commandButton>
+
+	</h:form>
+
+</h:body>
+</html>

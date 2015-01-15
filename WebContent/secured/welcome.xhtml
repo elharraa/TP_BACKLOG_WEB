@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"htth://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://java.sun.com/jsf/html"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	Welcome page
+</h:head>
+<h:body>
+	<h3>Welcome #{welcomeBean.connectedUser.firstname}</h3>
+	<fieldset>
+		<h:dataTable value="#{welcomeBean.agencyList}" var="agency">
+			<h:column>
+				<f:facet name="header">Agency Name</f:facet>    				
+            #{agency.name}
+         </h:column>
+			<h:column>
+				<f:facet name="header">Related backlog</f:facet>
+            <h:link value="click"
+				action="#{navigationBean.redirectToBacklog}" />
+         </h:column>
+		</h:dataTable>
+	</fieldset>
+	<fieldset>Create Agency
+		<h:form>
+			<h:outputText value="Name" />
+			<h:inputText value="#{welcomeBean.agencyName}" required="true"/>
+			<br />
+			<h:commandButton value="Create"
+				action="#{welcomeBean.createAgency}" />
+			<br />
+			<h:messages />
+			<br />
+		</h:form>
+	</fieldset>
+</h:body>
+</html>
