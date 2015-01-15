@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"    
-      xmlns:h="http://java.sun.com/jsf/html">
- 
- 
-    <h:head>
-    	<title>Welcome</title>
-    </h:head>
-    <h:body bgcolor="white">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
     	<h3>Ajouter Backlog entry</h3>
     	<h:form>
     	   <br/>
@@ -27,5 +23,5 @@
 	    		    	 
 	    	 <h:commandButton value="Add" action="#{backlogEntryBean.addBacklogEntry}"></h:commandButton>
     	 </h:form>
-    </h:body>
-</html>
+    </ui:define>
+</ui:composition>

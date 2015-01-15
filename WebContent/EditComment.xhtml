@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-
-<h:head>
-	<title>Welcome</title>
-</h:head>
-<h:body bgcolor="white">
-	<h3>Editer Backlog entry</h3>
-	<h:form>
-			<br/>
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h3>Editer Backlog entry</h3>
+		<h:form>
+			<br />
     	   id :
 	    	 <h:inputText value="#{commentBean.id}"></h:inputText>
-	    	<br/>
-	    	<br/>
+			<br />
+			<br />
     	   comment :
 	    	 <h:inputText value="#{commentBean.comment}"></h:inputText>
-	    	<br/>
+			<br />
 
-		<h:commandButton value="Edit"
-			action="#{commentBean.editComment}"></h:commandButton>
-	</h:form>
-</h:body>
-</html>
+			<h:commandButton value="Edit" action="#{commentBean.editComment}" ></h:commandButton>
+		</h:form>
+	</ui:define>
+</ui:composition>
