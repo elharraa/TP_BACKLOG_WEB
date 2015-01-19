@@ -151,7 +151,7 @@ public String toEditComment(ActionEvent event ) throws IOException {
 		setCreationDate((String )event.getComponent().getAttributes().get("commentCreationDate"));
 		System.out.println(this.creationDate ) ;
 		
-		FacesContext.getCurrentInstance().getExternalContext().redirect("EditComment.xhtml");
+		FacesContext.getCurrentInstance().getExternalContext().redirect("EditComment.jsf");
 		return "EditComment?faces-redirect=true";
 		
 		
@@ -165,7 +165,7 @@ public String toCommentList(ActionEvent event ) throws IOException {
 	setEntryId(((int )event.getComponent().getAttributes().get("backlogEntryId")));
 	System.out.println(this.id);	
 	
-	FacesContext.getCurrentInstance().getExternalContext().redirect("CommentList.xhtml");
+	FacesContext.getCurrentInstance().getExternalContext().redirect("CommentList.jsf");
 	return "EditComment?faces-redirect=true";
 	
 	

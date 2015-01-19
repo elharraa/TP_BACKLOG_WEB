@@ -143,7 +143,7 @@ public String toEditBacklogEntry(ActionEvent event ) throws IOException {
 		setCreationDate((String )event.getComponent().getAttributes().get("backlogEntryCreationDate"));
 		System.out.println(this.creationDate ) ;
 		
-		FacesContext.getCurrentInstance().getExternalContext().redirect("EditBacklogEntry.xhtml");
+		FacesContext.getCurrentInstance().getExternalContext().redirect("EditBacklogEntry.jsf");
 		return "EditBacklogEntry?faces-redirect=true";
 		
 		
